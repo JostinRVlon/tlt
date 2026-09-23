@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="description" content="TLT Clothing — estilo, calidad e identidad. Descubre nuestra primera colección de ropa próximamente.">
+  <meta name="robots" content="index, follow">
+  <meta name="googlebot" content="index, follow">
+  <meta name="author" content="TLT Clothing">
+  <meta property="og:title" content="TLT Clothing">
+  <meta property="og:description" content="TLT Clothing — nuestra primera colección próximamente.">
+  <meta property="og:type" content="website">
+
+  <title>TLT | Clothing</title>
+  <style>
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:#090909;color:#fff;font-family:Arial,Helvetica,sans-serif}
+    header{height:72px;border-bottom:1px solid #222;display:flex;align-items:center;justify-content:space-between;padding:0 7%;position:sticky;top:0;background:rgba(9,9,9,.92);backdrop-filter:blur(12px);z-index:5}
+    .logo{font-size:25px;font-weight:900;letter-spacing:6px}
+    nav{display:flex;gap:28px}
+    nav a{color:#aaa;text-decoration:none;font-size:14px}
+    nav a:hover{color:#fff}
+    .cart{border:1px solid #333;border-radius:30px;padding:9px 15px;font-size:13px}
+    main{min-height:calc(100vh - 72px);display:grid;place-items:center;text-align:center;padding:50px 20px;position:relative;overflow:hidden}
+    main:before{content:"";position:absolute;width:420px;height:420px;border-radius:50%;background:#fff;opacity:.05;filter:blur(90px);top:5%;left:50%;transform:translateX(-50%)}
+    .hero{position:relative;max-width:800px}
+    .tag{display:inline-block;border:1px solid #333;border-radius:999px;padding:8px 15px;color:#999;font-size:11px;letter-spacing:2px;text-transform:uppercase;margin-bottom:25px}
+    h1{font-size:clamp(80px,16vw,180px);line-height:.8;margin:0 0 30px;letter-spacing:-9px}
+    h1 span{color:#666}
+    .subtitle{color:#aaa;font-size:18px;line-height:1.6;max-width:570px;margin:0 auto 38px}
+    .coming{font-size:13px;color:#777;letter-spacing:3px;text-transform:uppercase}
+    .features{display:flex;justify-content:center;gap:50px;margin-top:55px;color:#888;font-size:12px}
+    .features strong{display:block;color:#fff;font-size:14px;margin-bottom:7px}
+    footer{position:absolute;bottom:20px;left:0;right:0;color:#444;font-size:11px}
+    @media(max-width:600px){
+      header{padding:0 20px}nav{display:none}
+      h1{letter-spacing:-5px}
+      .features{gap:22px;flex-wrap:wrap}
+    }
+  </style>
+
+  <style>
+    #password-screen{
+      position:fixed;inset:0;background:#090909;color:#fff;z-index:9999;
+      display:grid;place-items:center;padding:20px;font-family:Arial,Helvetica,sans-serif;
+    }
+    #password-box{
+      width:min(380px,100%);text-align:center;border:1px solid #222;
+      border-radius:18px;padding:34px 28px;background:#0d0d0d;
+    }
+    #password-box h2{margin:0 0 10px;font-size:28px;letter-spacing:2px}
+    #password-box p{color:#888;font-size:13px;margin:0 0 24px}
+    #site-password{
+      width:100%;padding:13px 15px;background:#090909;color:#fff;
+      border:1px solid #333;border-radius:10px;outline:none;font-size:15px;
+    }
+    #password-button{
+      width:100%;margin-top:12px;padding:13px;border:0;border-radius:10px;
+      background:#fff;color:#000;font-weight:700;cursor:pointer;font-size:14px;
+    }
+    #password-error{color:#ff6666;font-size:12px;margin-top:12px;min-height:15px}
+    body.locked > *:not(#password-screen){display:none}
+  </style>
+
+
+  <style>
+    #intro-animation{
+      position:fixed;inset:0;background:#090909;color:#fff;z-index:10000;
+      display:grid;place-items:center;overflow:hidden;
+      animation:introFadeOut .8s ease 2.4s forwards;
+    }
+    #intro-logo{
+      display:flex;align-items:center;justify-content:center;
+      font-size:clamp(70px,14vw,150px);font-weight:900;
+      letter-spacing:28px;transform:translateX(14px);
+    }
+    #intro-logo span{
+      display:inline-block;opacity:0;transform:translateX(0) scale(.7);
+    }
+    #intro-logo span:nth-child(1){animation:letterJoin .8s cubic-bezier(.2,.8,.2,1) .15s forwards}
+    #intro-logo span:nth-child(2){animation:letterJoin .8s cubic-bezier(.2,.8,.2,1) .45s forwards}
+    #intro-logo span:nth-child(3){animation:letterJoin .8s cubic-bezier(.2,.8,.2,1) .75s forwards}
+    @keyframes letterJoin{
+      0%{opacity:0;transform:translateX(var(--from,0)) scale(.7)}
+      55%{opacity:1;transform:translateX(0) scale(1.08)}
+      100%{opacity:1;transform:translateX(0) scale(1)}
+    }
+    @keyframes introFadeOut{
+      0%{opacity:1;visibility:visible}
+      70%{opacity:1}
+      100%{opacity:0;visibility:hidden;pointer-events:none}
+    }
+    @media(max-width:600px){
+      #intro-logo{letter-spacing:14px;transform:translateX(7px)}
+    }
+  </style>
+
+</head>
+<body>
+
+  <div id="intro-animation" aria-hidden="true">
+    <div id="intro-logo">
+      <span style="--from:-90px">T</span>
+      <span style="--from:0">L</span>
+      <span style="--from:90px">T</span>
+    </div>
+  </div>
+
+
+  <div id="password-screen">
+    <div id="password-box">
+      <h2>TLT</h2>
+      <p>Introduce la contraseña para entrar</p>
+      <input id="site-password" type="password" placeholder="Contraseña" autocomplete="off">
+      <button id="password-button">ENTRAR</button>
+      <div id="password-error"></div>
+    </div>
+  </div>
+  <script>
+    document.body.classList.add('locked');
+    const PASSWORD = 'jostin15';
+    const screen = document.getElementById('password-screen');
+    const input = document.getElementById('site-password');
+    const button = document.getElementById('password-button');
+    const error = document.getElementById('password-error');
+
+    function unlock(){
+      if(input.value === PASSWORD){
+        document.body.classList.remove('locked');
+        screen.remove();
+      }else{
+        error.textContent = 'Contraseña incorrecta';
+        input.value = '';
+        input.focus();
+      }
+    }
+    button.addEventListener('click', unlock);
+    input.addEventListener('keydown', e => {
+      if(e.key === 'Enter') unlock();
+    });
+    input.focus();
+  </script>
+
+  <header>
+    <div class="logo">TLT</div>
+    <nav>
+      <a href="#inicio">Inicio</a>
+      <a href="#coleccion">Colección</a>
+      <a href="#nosotros">Nosotros</a>
+    </nav>
+    <div class="cart">Bolsa · 0</div>
+  </header>
+
+  <main id="inicio">
+    <section class="hero">
+      <div class="tag">TLT Clothing · 2026</div>
+      <h2 style="position:absolute;left:-9999px;">TLT Clothing — ropa, estilo, calidad e identidad</h2>
+      <h1>TLT<br><span>SOON.</span></h1>
+      <p class="subtitle">
+        Estamos preparando nuestra primera colección de ropa.
+        El nombre completo de la marca llegará próximamente.
+      </p>
+      <div class="coming">Primera colección próximamente</div>
+
+      <div class="features">
+        <div><strong>01</strong>Estilo</div>
+        <div><strong>02</strong>Calidad</div>
+        <div><strong>03</strong>Identidad</div>
+      </div>
+    </section>
+    <footer>© 2026 TLT Clothing</footer>
+  </main>
+</body>
+</html>
